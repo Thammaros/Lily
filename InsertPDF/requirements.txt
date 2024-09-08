@@ -1,0 +1,5 @@
+fastembed
+qdrant-client
+tqdm
+PyPDF2
+pycryptodome
