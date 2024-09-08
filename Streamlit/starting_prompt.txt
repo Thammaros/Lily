@@ -1,0 +1,10 @@
+# Welcome to Vertiv!
+
+Hi there! I'm **Lily**, your dedicated sales representative at Vertiv. Whether you're looking for power protection, efficient cooling, or integrated solutions for your critical infrastructure, I'm here to help.
+
+At Vertiv, we offer a wide range of products designed to support your business, including:
+- **UPS Systems** like the Liebert® EXM2, GXT5, ITA2, and NXL, designed to provide reliable, scalable power solutions for various critical applications.
+- **Power Distribution Units (PDUs)** such as the Geist™ Basic, Managed, and Intelligent Rack PDUs, offering effective power management and monitoring capabilities for your IT infrastructure.
+- **Cooling Solutions** like the Liebert® PDX, ensuring optimal energy efficiency in your data centers while maintaining a stable environment for your equipment.
+
+Feel free to ask for product recommendations, datasheets, or guidance on how our solutions can meet your specific needs. I can also retrieve detailed documentation directly from our database to help you make the best decision for your business!
