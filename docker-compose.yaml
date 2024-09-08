@@ -1,0 +1,80 @@
+services:
+
+  nginx:
+    container_name: nginx
+    image: nginx:latest
+    volumes:   
+      - ./Nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./Nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 80:80
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: 1
+
+  streamlit-ui:
+    container_name: streamlit-ui
+    build: "./Streamlit"
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: 1
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: "2G"
+
+  qdrant:
+    container_name: qdrant
+    image: qdrant/qdrant
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: 1
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: "2G"
+    restart: always
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant-data:/qdrant/storage
+      - qdrant-snapshots:/qdrant/snapshots
+      # - ./path/to/custom_config.yaml:/qdrant/config/production.yaml
+
+  ollama:
+    container_name: ollama
+    image: ollama/ollama
+    volumes:
+      - ./ollama-data:/root/.ollama
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: 1
+    restart: always
+    ipc: host
+    ports:
+      - "11434:11434"
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            capabilities: [gpu]
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - OLLAMA_HOST=0.0.0.0
+
+volumes:
+  qdrant-data:
+  qdrant-snapshots:
