@@ -28,6 +28,11 @@ services:
         limits:
           cpus: "1"
           memory: "2G"
+    volumes:
+      - ./Streamlit/system_prompt.txt:/app/system_prompt.txt:ro
+      - ./Streamlit/starting_prompt.txt:/app/starting_prompt.txt:ro
+      - ./Streamlit/config.py:/app/config.py:ro
+      - ./Streamlit/.streamlit/config.toml:/app/.streamlit/config.toml:ro
 
   qdrant:
     container_name: qdrant
