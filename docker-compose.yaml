@@ -3,6 +3,7 @@ services:
   nginx:
     container_name: nginx
     image: nginx:latest
+    restart: always
     volumes:   
       - ./Nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
       - ./Nginx/nginx.conf:/etc/nginx/nginx.conf:ro
@@ -70,6 +71,7 @@ services:
     ipc: host
     ports:
       - "11434:11434"
+    runtime: nvidia   
     deploy:
       resources:
         reservations:
